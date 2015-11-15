@@ -3,6 +3,8 @@ This project is a skeleton project with user registration and login base skeleto
 with a Facebook Login Module using [django-allauth](http://django-allauth.readthedocs.org/en/latest/)
 and ready to be deployed to [Heroku](https://heroku.com).
 
+You can visit [https://django-skeleton.herokuapp.com](https://django-skeleton.herokuapp.com) to see the skeleton site running.
+
 ## Python
 
 For this project you will need python 3.4.x installed on your computer.
