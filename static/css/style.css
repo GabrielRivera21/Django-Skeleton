@@ -1,0 +1,53 @@
+#notCreatedAccountText,
+#loginToAccountText {
+    font-size: 14px;
+}
+#facebookLogin {
+    padding-bottom: 20px;
+}
+#facebookLogin > a:hover,
+#facebookLogin > a:focus {
+    color: #fff;
+    background-color: #30487C;
+    text-decoration: none;
+}
+
+.wrapper-main {
+    padding-top: 70px;
+}
+
+.nav-profile-name {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.facebook {
+    color: #fff;
+    background: #3b5998;
+    text-decoration: none;
+}
+
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    width: 120px;
+    padding: 10px;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 0 2px #333;
+    color: #FFF;
+}
+
+@media(min-width: 720px) {
+    .navbar {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+}

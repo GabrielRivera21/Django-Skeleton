@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skeleton {% block head_title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/material-fullpalette.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/ripples.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/roboto.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %} {% endblock %}
+
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.4-dist/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    {% include 'common/navbar.html' %}
+
+    <div class="wrapper-main">
+        {% block content %} {% endblock %}
+    </div>
+
+    {% include 'common/footer.html' %}
+
+    {% block extra_js %} {% endblock %}
+
+    <script src="{% static 'material-dist/js/material.min.js' %}"></script>
+    <script src="{% static 'material-dist/js/ripples.min.js' %}"></script>
+    <script type="text/javascript">
+        $.material.init();
+    </script>
+</body>
+</html>

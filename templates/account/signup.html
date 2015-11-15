@@ -1,0 +1,70 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            {% get_providers as socialaccount_providers %}
+            <div class="centered">
+                {% if socialaccount_providers %}
+                    <div id="facebookLogin">
+                         <a title="Facebook" class="socialaccount_provider button facebook" href="/accounts/facebook/login/?process=login">Connect with Facebook</a>
+                    </div>
+                {% endif %}
+             </div>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-dismissable alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-dismissable alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="centered">
+                <p id="loginToAccountText">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+            </div>
+
+            <form class="form-horizontal" method="post" action="{% url 'account_signup' %}"> {% csrf_token %}
+                <fieldset>
+                <legend>Sign Up</legend>
+                    <div class="form-group">
+                        <label class="col-sm-offset-1 col-sm-2 control-label" for="id_email">Email:</label>
+                        <div class="col-sm-7">
+                            <input id="id_email" class="form-control" name="email" type="email"
+                                   placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-offset-1 col-sm-2 control-label" for="id_password1">Password:</label>
+                        <div class="col-sm-7">
+                            <input id="id_password1" class="form-control" name="password1" type="password"
+                                   placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-offset-1 col-sm-2 control-label" for="id_password2">Confirm Password:</label>
+                        <div class="col-sm-7">
+                            <input id="id_password2" class="form-control" name="password2" type="password"
+                                   placeholder="Confirm Password">
+                            <input id="id_confirmation_key" name="confirmation_key" type="hidden">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-8 col-sm-2">
+                            <input type="submit" class="btn btn-success btn-block" value="Sign Up">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
