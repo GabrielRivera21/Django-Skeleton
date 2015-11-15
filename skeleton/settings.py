@@ -186,7 +186,6 @@ class Staging(Common):
     INSTALLED_APPS = Common.INSTALLED_APPS + (
         'djangosecure',
     )
-    SITE_ID = 2
 
     # django-secure
     SESSION_COOKIE_SECURE = values.BooleanValue(True)
